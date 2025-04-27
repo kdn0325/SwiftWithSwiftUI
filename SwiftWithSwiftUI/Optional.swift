@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct Optional: View {
+    let name: String
+    let age: Int?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(name)
+            // nil이 아닐때만 뷰에서 그려지도록
+            if let age = age {
+                Text(age.description)
+            }
+            // 옵셔널 타입으로 nil이면 "100"
+//            Text(age?.description ?? "100")
+        }
+
     }
 }
 
 #Preview {
-    Optional()
+    // 값이 없을 경우
+    Optional(name: "DongNyeong", age: nil)
 }
