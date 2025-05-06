@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct Higher_order_function: View {
+    let friends = ["Abel", "John", "Mary", "David"]
+    let ages = [20, 30, 25, 35]
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(ages.map({ item in
+                String(item)
+            }), id: \.self) { age in
+                Text(age)
+            }
+        }
     }
 }
 
